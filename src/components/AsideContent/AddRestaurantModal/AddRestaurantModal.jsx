@@ -15,52 +15,54 @@ const FormItem = styled.div`
         padding-left: 4px;
       }
     `}
+`;
 
-  label {
+const Label = styled.label`
     color: var(--grey-400);
 
     font-size: 14px;
     line-height: 20px;
     font-weight: 400;
-  }
+`;
 
-  input,
-  textarea,
-  select {
-    padding: 8px;
-    margin: 6px 0;
-    border: 1px solid var(--grey-200);
-    border-radius: 8px;
-    font-size: 16px;
-  }
+const Input = styled.input`
+  padding: 8px;
+  margin: 6px 0;
+  border: 1px solid var(--grey-200);
+  border-radius: 8px;
+  font-size: 16px;
+  
+  ${(props) => (props.name === 'name')
+    && css`height: 44px; `}
+`;
 
-  textarea {
-    resize: none;
-  }
+const TextArea = styled.textarea`
+  padding: 8px;
+  margin: 6px 0;
+  border: 1px solid var(--grey-200);
+  border-radius: 8px;
+  font-size: 16px;
+  
+  resize: none;
+`;
 
-  select {
-    height: 44px;
+const Select = styled.select`
+  padding: 8px;
+  margin: 6px 0;
+  border: 1px solid var(--grey-200);
+  border-radius: 8px;
+  font-size: 16px;
 
-    padding: 8px;
+  height: 44px;
+  color: var(--grey-300);
+`;
 
-    border: 1px solid var(--grey-200);
-    border-radius: 8px;
+const Span = styled.span`
+  color: var(--grey-300);
 
-    color: var(--grey-300);
-  }
-
-  input[name="name"],
-  input[name="link"] {
-    height: 44px;
-  }
-
-  span {
-    color: var(--grey-300);
-
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 400;
-  }
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
 `;
 
 const ButtonContainer = styled.div`
@@ -112,21 +114,21 @@ export default function AddRestaurantModal({ isVisible, closeModal, addRestauran
     <Modal onClickBackdrop={closeModal} title="새로운 음식점">
       <form onSubmit={handleSubmit}>
         <FormItem required>
-          <label htmlFor="category">카테고리</label>
-          <select name="category" id="category" required>
+          <Label htmlFor="category">카테고리</Label>
+          <Select name="category" id="category" required>
             {optionList}
-          </select>
+          </Select>
         </FormItem>
 
         <FormItem required>
-          <label htmlFor="name">이름</label>
-          <input type="text" name="name" id="name" required />
+          <Label htmlFor="name">이름</Label>
+          <Input type="text" name="name" id="name" required />
         </FormItem>
 
         <FormItem>
-          <label htmlFor="description">설명</label>
-          <textarea name="description" id="description" cols="30" rows="5" />
-          <span>메뉴 등 추가 정보를 입력해 주세요.</span>
+          <Label htmlFor="description">설명</Label>
+          <TextArea name="description" id="description" cols="30" rows="5" />
+          <Span>메뉴 등 추가 정보를 입력해 주세요.</Span>
         </FormItem>
 
         <ButtonContainer>
