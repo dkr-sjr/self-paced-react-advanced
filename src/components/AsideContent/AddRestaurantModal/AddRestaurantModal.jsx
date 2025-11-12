@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import styles from '../RestaurantModal.module.css';
 import Modal from '../Modal/Modal';
 import categoryList from '../../../Data/categoryList';
@@ -23,8 +24,7 @@ export default function AddRestaurantModal({ isVisible, closeModal, addRestauran
 
   if (!isVisible) return null;
   return (
-    <Modal onClickBackdrop={closeModal}>
-      <h2 className={`${styles.modalTitle} text-title`}>새로운 음식점</h2>
+    <Modal onClickBackdrop={closeModal} title="새로운 음식점">
       <form onSubmit={handleSubmit}>
         <div className={`${styles.formItem} ${styles.formItemRequired}`}>
           <label htmlFor="category" className="text-caption">카테고리</label>

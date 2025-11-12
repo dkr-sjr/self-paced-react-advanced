@@ -4,8 +4,7 @@ import Modal from '../Modal/Modal';
 export default function RestaurantDetailModal({ isVisible, closeModal, restaurantInfo }) {
   if (!isVisible) return null;
   return (
-    <Modal onClickBackdrop={closeModal}>
-      <h2 className={`${styles.modalTitle} text-title`}>{restaurantInfo.name}</h2>
+    <Modal onClickBackdrop={closeModal} title={restaurantInfo.name}>
       <div className={styles.restaurantInfo}>
         <p className={`${styles.restaurantInfoDescription} text-body`}>{restaurantInfo.description}</p>
       </div>

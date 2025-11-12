@@ -1,10 +1,39 @@
-import styles from '../RestaurantModal.module.css';
+import styled from 'styled-components';
 
-export default function Modal({ children, onClickBackdrop }) {
+const ModalContainer = styled.div`
+  display: block;
+`;
+
+const ModalBackdrop = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background: rgba(0, 0, 0, 0.35);
+`;
+
+const ModalContent = styled.div`
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  padding: 32px 16px;
+
+  border-radius: 8px 8px 0px 0px;
+  background: var(--grey-100);
+
+`;
+
+const ModalTitle = styled.h2`
+  margin-bottom: 36px;
+`;
+
+export default function Modal({ children, onClickBackdrop, title }) {
   return (
-    <div className={`${styles.modal} ${styles.modalOpen}`}>
-      <div
-        className={styles.modalBackdrop}
+    <ModalContainer>
+      <ModalBackdrop
         role="button"
         tabIndex={0}
         onClick={onClickBackdrop}
@@ -15,9 +44,10 @@ export default function Modal({ children, onClickBackdrop }) {
         }}
         aria-label="모달 백드롭"
       />
-      <div className={styles.modalContainer}>
+      <ModalContent>
+        <ModalTitle>{ title }</ModalTitle>
         { children }
-      </div>
-    </div>
+      </ModalContent>
+    </ModalContainer>
   );
 }

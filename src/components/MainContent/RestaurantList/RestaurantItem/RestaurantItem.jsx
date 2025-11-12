@@ -69,6 +69,7 @@ const RestaurantDescription = styled.p`
   line-height: 24px;
   font-weight: 400;
 `;
+
 const categoryImgMap = {
   한식: 'templates/category-korean.png',
   중식: 'templates/category-chinese.png',
