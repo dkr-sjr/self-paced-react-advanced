@@ -2,6 +2,12 @@ import styled, { css } from 'styled-components';
 import Modal from '../Modal/Modal';
 import categoryList from '../../../Data/categoryList';
 
+const textCaption = css`
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+`;
+
 const FormItem = styled.div`
   display: flex;
   flex-direction: column;
@@ -18,17 +24,19 @@ const FormItem = styled.div`
 `;
 
 const Label = styled.label`
-    color: var(--grey-400);
-
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 400;
+  color: var(--grey-400);
+  ${textCaption}
+   
 `;
 
-const Input = styled.input`
+const sharedStyle = css`
   padding: 8px;
   margin: 6px 0;
   border: 1px solid var(--grey-200);
+`;
+
+const Input = styled.input`
+  ${sharedStyle}
   border-radius: 8px;
   font-size: 16px;
   
@@ -37,9 +45,7 @@ const Input = styled.input`
 `;
 
 const TextArea = styled.textarea`
-  padding: 8px;
-  margin: 6px 0;
-  border: 1px solid var(--grey-200);
+${sharedStyle}
   border-radius: 8px;
   font-size: 16px;
   
@@ -47,9 +53,7 @@ const TextArea = styled.textarea`
 `;
 
 const Select = styled.select`
-  padding: 8px;
-  margin: 6px 0;
-  border: 1px solid var(--grey-200);
+  ${sharedStyle}
   border-radius: 8px;
   font-size: 16px;
 
@@ -60,9 +64,7 @@ const Select = styled.select`
 const Span = styled.span`
   color: var(--grey-300);
 
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 400;
+  ${textCaption}
 `;
 
 const ButtonContainer = styled.div`
@@ -84,6 +86,8 @@ const Button = styled.button`
   background: var(--primary-color);
 
   color: var(--grey-100);
+
+  ${textCaption}
 
   &:last-child {
     margin-right: 0;
